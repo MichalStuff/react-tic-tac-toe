@@ -106,7 +106,7 @@ class App extends Component {
     board = board.map(field => (
       field.status
     ));
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
       const [a, b, c] = combinations[i];
       value1 = board[a];
       value2 = board[b];
@@ -255,16 +255,19 @@ class App extends Component {
       <Board key={field.id} id={field.id} status={field.status} click={this.handleClick} />
     ));
     return (
-      <>
-        <Result turn={this.state.turn} winner={this.state.winner} isGameWon={this.state.isGameWon} score={this.state.score} />
-        <button className={this.state.bot ? 'bot_btn' : 'human_btn'} onClick={this.handlePlayer}>Play with {this.state.bot ? 'BOT' : 'HUMAN'}</button>
-        <div className="app">
+      <div className="app">
+        <div className="table">
+          <Result turn={this.state.turn} winner={this.state.winner} isGameWon={this.state.isGameWon} score={this.state.score} />
+          <button className={this.state.bot ? 'bot_btn' : 'human_btn'} onClick={this.handlePlayer}>Play with {this.state.bot ? 'BOT' : 'HUMAN'}</button>
+          <button className="reset_btn" onClick={this.handleReset}>RESET?</button>
+        <button className="reset_btn" onClick={this.handleResetScore}>RESET SCORE?</button>
+        </div>
+        <div className="board">
           {fields}
         </div>
 
-        {this.state.isGameWon && <button className="reset_btn" onClick={this.handleReset}>RESET?</button>}
-        {this.state.isGameWon && <button className="reset_btn" onClick={this.handleResetScore}>RESET SCORE?</button>}
-      </>
+
+      </div>
     );
   }
 }

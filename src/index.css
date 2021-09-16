@@ -1,43 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 body {
+  display: flex;
+  width: 100%;
   margin: 0;
   padding: 0;
+  height: 100vh;
   box-sizing: border-box;
+  font-family: 'Lobster', cursive;
 }
-
-.app {
-  margin: 10px auto 0 auto;
+#root{
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 1280px;
+  width: 100%;
+}
+.app{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.board {
+  margin: 5px auto 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  width: 312px;
-  height: 312px;
+  width: 252px;
+  height: 252px;
   border: 2px solid black;
-  overflow: hidden;
   background-color: black;
 }
 
 .x {
   background-image: url(x.png);
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .o {
   background-image: url(o.png);
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .empty {
   background-color: deepskyblue;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -46,14 +63,20 @@ body {
   background-color: dodgerblue;
 }
 
-.result {
-  width: 300px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 50px;
-  text-align: center;
+.table{
+  width: 80%;
 }
 
+.result {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  text-align: center;
+}
+.result h1{
+  font-size: 24px;
+}
 .result div {
   display: flex;
   justify-content: space-between;
@@ -61,32 +84,29 @@ body {
 
 .result div h2 {
   text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
 }
 
 .reset_btn {
   display: block;
   margin: 10px auto;
   background-color: white;
-  font-size: 19px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-family: 'Anton', sans-serif;
   font-weight: bold;
   border: 2px solid black;
   padding: 5px 15px;
   transition: 0.3s;
 }
 
-.reset_btn:hover {
-  font-size: 24px;
-  padding: 10px 30px;
-  background-color: black;
-  color: white;
-}
+
 
 .human_btn {
   display: block;
   margin: 10px auto;
   background-color: white;
-  font-size: 19px;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   border: 2px solid black;
@@ -98,10 +118,193 @@ body {
   display: block;
   margin: 10px auto;
   background-color: black;
-  font-size: 19px;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   border: 2px solid black;
   padding: 5px 15px;
   color: white;
 }
+
+
+@media (orientation : portrait) and (min-width : 411px){
+  .table{
+    width: 100%;
+  }
+  .result{
+    width: 80%;
+  }
+  .result h1{
+    font-size: 36px;
+  }
+  .result div{
+    width: 100%;
+  }
+  .result div h2{
+    font-size: 24px;
+  }
+  .reset_btn, .human_btn, .bot_btn{
+    font-size: 24px;
+  }
+  .board{
+    width: 312px;
+    height: 312px;
+  }
+  .empty, .o, .x{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (orientation:portrait) and (min-width:768px){
+  .table{
+    width: 100%;
+  }
+  .result{
+    width: 80%;
+  }
+  .result h1{
+    font-size: 52px;
+  }
+  .result div{
+    width: 100%;
+  }
+  .result div h2{
+    font-size: 32px;
+    margin : 0 auto;
+  }
+  .reset_btn, .human_btn, .bot_btn{
+    font-size: 28px;
+    padding: 10px 20px;
+    border: 3px solid black;
+    margin-top: 20px;
+  }
+  .board{
+    width: 375px;
+    height: 375px;
+  }
+  .empty, .o, .x{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (orientation : landscape){
+  .table{
+    width: 50%;
+  }
+  .app{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result div{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .result div h2{
+    display: block;
+    font-size: 14px;
+    margin: 0 auto;
+  }
+}
+
+@media (orientation : landscape){
+  .table{
+    width: 50%;
+  }
+  .app{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result div{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .result h1{
+    font-size: 32px;
+  }
+  .result div h2{
+    display: block;
+    font-size: 20px;
+    margin: 0 auto;
+  }
+}
+
+@media (orientation : landscape) and (min-width : 823px ){
+  .app{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .table{
+    width: 50%;
+  }
+  .board{
+    width: 312px;
+    height: 312px;
+  }
+  .empty, .o, .x{
+    width: 100px;
+    height: 100px;
+  }
+  .result h1{
+    font-size: 38px;
+  }
+  .result div{
+    width: 80%;
+  }
+  .result div h2{
+    font-size: 26px;
+  }
+  .reset_btn, .human_btn, .bot_btn{
+    font-size: 24px;
+  }
+}
+
+@media (orientation : landscape) and (min-width : 1023px){
+  .app{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .table{
+    width: 50%;
+  }
+  .board{
+    width: 375px;
+    height: 375px;
+  }
+  .empty, .o, .x{
+    width: 120px;
+    height: 120px;
+  }
+  .result h1{
+    font-size: 48px;
+  }
+  .result div{
+    width: 80%;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .result div h2{
+    display: block;
+    font-size: 32px;
+    margin-left: 10px;
+  }
+  .reset_btn, .human_btn, .bot_btn{
+    font-size: 28px;
+    transition: 0.3s linear;
+  }
+  .reset_btn:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
